@@ -22,7 +22,7 @@ public class BasePage extends DriverManager
    public void selectByValue(WebElement element, String value)
    {
        select = new Select(element);
-       select.selectByVisibleText(value);
+       select.selectByValue(value);
    }
    public void selectByIndex(WebElement element, int index)
    {
