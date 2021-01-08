@@ -4,14 +4,41 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+
+
 public class ForSaleSearchSteps {
+
+    WebDriver driver;
+
     @Given("I navigate to Zoopla homepage")
     public void i_navigate_to_zoopla_homepage() {
+        WebDriverManager.chromedriver().setup();
+        //WebDriverManager.firefoxdriver().setup();
+        //WebDriverManager.iedriver().setup();
+
+        // launch a browser
+         driver = new ChromeDriver();
+        //driver = new FirefoxDriver();
+
+        //driver = new InternetExplorerDriver();
+
+        //enters the url and
+        // navigate to the url
+        driver.navigate().to("https://www.zoopla.co.uk/");
+
+
 
     }
 
     @When("I enter {string} into the search field")
-    public void i_enter_into_the_search_field(String string) {
+    public void i_enter_into_the_search_field(String location) {
+        driver.findElement(By.id("search-input-location")).sendKeys(location);
 
     }
 
