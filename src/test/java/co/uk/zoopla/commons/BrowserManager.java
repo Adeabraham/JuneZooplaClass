@@ -12,9 +12,9 @@ import java.util.concurrent.TimeUnit;
 
 public class BrowserManager extends DriverManager
 {
-   private WebDriver initChrome()
+   private WebDriver initChrome()// initialization
     {
-        WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup(); // set up
         return new ChromeDriver();
     }
     private WebDriver initHeadlessChrome()
@@ -31,7 +31,7 @@ public class BrowserManager extends DriverManager
     private WebDriver initFirefox()
     {
         WebDriverManager.firefoxdriver().setup();
-        return new ChromeDriver();
+        return new FirefoxDriver();
     }
     private WebDriver initHeadlessFirefox()
     {
