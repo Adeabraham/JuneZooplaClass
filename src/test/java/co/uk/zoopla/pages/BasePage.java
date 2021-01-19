@@ -1,6 +1,7 @@
 package co.uk.zoopla.pages;
 
 import co.uk.zoopla.commons.DriverManager;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -17,6 +18,14 @@ public class BasePage extends DriverManager
    {
        select = new Select(element);  //  6
        select.selectByVisibleText(text);
+       // to tell selenium that whatever is selected is what is displayed: i.e. to verify:
+       Assert.assertTrue(select.getFirstSelectedOption().getText().equals(text)); // get the ist thing we ask u to select,
+                                                                                 // get the text that is attached to it and make
+                                                                                  // sure it is equal to what we ask u to select
+
+       // the code below can be used personally for troubleshooting to
+       // display what is selected. It should not be checked into github with the rest of the code (unprofessional!)
+       //System.out.println(select.getFirstSelectedOption().getText());
    }
 
    public void selectByValue(WebElement element, String value)
